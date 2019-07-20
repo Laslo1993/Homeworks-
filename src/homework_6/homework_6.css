@@ -1,0 +1,543 @@
+@import './fonts.css';
+* {
+    box-sizing: border-box
+}
+
+html {
+    font-family: 'SF Pro display';
+    font-size: 15px;
+}
+
+h1, h2, h3, h4, h5, h6 {
+    padding: 0;
+    margin: 0;
+}
+
+body {
+    min-height: 100vh;
+    padding: 0;
+    margin: 0;
+}
+
+ul, ol {
+    padding: 0;
+    margin: 0;
+}
+
+/* Page-nav */
+
+.page-nav {
+    background-color: rgba(45, 45, 45, 0.98);
+    display: flex;
+    justify-content: center;
+    height: 50px;
+    padding: 0 8px;
+}
+
+.page-nav__menu {
+    display: flex;
+    justify-content: space-between;
+    max-width: 960px;
+    width: 100%;
+    list-style: none;
+}
+
+.page-nav__link {
+    height: 100%;
+    display: flex;
+    align-items: center;
+    text-align: center;
+    color: #ffffff;
+    text-decoration: none;
+}
+
+.page-nav__switcher {
+    background-color: transparent;
+    border: none;
+    height: 20px;
+    width: 20px;
+    outline: none;
+    font-size: 1rem;
+    position: relative;
+}
+
+.page-nav__img {
+    height: 100%;
+    display: flex;
+    align-items: center;
+    text-align: center;
+    color: #ffffff;
+    text-decoration: none;
+    background-color: transparent;
+    border: none;
+    position: relative;
+}
+
+.page-nav__switcher:before {
+    content: '';
+    width: 100%;
+    height: 1px;
+    background-color: #FFF;
+    position: absolute;
+    top: 5px;
+    left: 0;
+    transition: all 200ms;
+}
+
+.page-nav__switcher:after {
+    content: '';
+    width: 100%;
+    height: 1px;
+    background-color: #FFF;
+    position: absolute;
+    bottom: 5px;
+    left: 0;
+    transition: all 200ms;
+}
+
+.page-nav.opened .page-nav__switcher:before {
+    transform: translateY(5px) rotate(45deg);
+}
+
+.page-nav.opened .page-nav__switcher:after {
+    transform: translateY(-4px) rotate(-45deg);
+}
+
+.page-nav__controls {
+    display: none;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+}
+
+.page-nav.opened .page-nav__img-link {
+    display: none;
+}
+
+/*Chapter-nav*/
+
+.chapter-nav {
+    background: #f6f6f6;
+    display: flex;
+    justify-content: center;
+    height: 120px;
+}
+
+.chapter-nav__content {
+    display: flex;
+    list-style: none;
+    justify-content: space-between;
+    max-width: 820px;
+    width: 100%;
+    margin: 15px;
+}
+
+.chapter-nav__item {
+    text-align: center;
+}
+
+.chapter-nav__item_link {
+    text-decoration: none;
+    color: #111;
+}
+
+.chapter-nav__item_label {
+    font-size: 8px;
+    color: rgba(0, 0, 0, 0.8);
+}
+
+/* Section*/
+
+.section {
+    margin: 1rem auto;
+    box-sizing: border-box;
+    position: relative;
+}
+
+.section-content {
+    box-sizing: border-box;
+    margin: 1rem auto;
+    position: relative;
+    overflow: hidden;
+}
+
+.section-description {
+    text-align: center;
+}
+
+.section-description_content {
+    margin: 0 auto;
+}
+
+.row-reverse {
+    flex-direction: row-reverse;
+}
+
+.grid-container {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    height: 100%;
+}
+
+.section-header_large {
+    font-size: 3.5rem;
+}
+
+.section-header {
+    font-size: 2.5rem;
+}
+
+.section-header_small {
+    font-size: 1.6875rem;
+}
+
+.section-header_description {
+    font-size: 1.3125rem;
+}
+
+.section_text {
+    margin: 0 auto;
+    text-align: center;
+}
+
+.section-availability {
+    color: #888;
+    padding-top: 0.75rem;
+}
+
+.section-availability>span {
+    padding: 0 1rem;
+}
+
+.section-link {
+    display: inline-block;
+    padding-top: 0.75rem;
+    color: #0070c9;
+    font-size: 1.3rem;
+    position: relative;
+    text-decoration: none;
+}
+
+.section-link:after {
+    content: '>';
+    position: absolute;
+    right: 0;
+    top: 50%;
+    transform: translate(150%, -17%);
+    font-size: 1rem;
+}
+
+.section-img {
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: contain;
+}
+
+/* iPhone-X*/
+
+.section-iphone-x {
+    background-color: #f7f7f7;
+}
+
+.section-iphone-x .section-content {
+    padding-top: 4.375rem;
+    margin: 0 auto;
+}
+
+.section-iphone-x .section-img {
+    margin: 4rem auto;
+}
+
+/* PC */
+
+@media (min-width: 1200px) {
+    .section-iphone-x .section-img {
+        background-image: url(../../assets/images/lesson_6/iphone_x_large_2x.jpg);
+        width: 981px;
+        height: 206px;
+        background-size: 981px 206px;
+    }
+}
+
+/* Laptop*/
+
+@media (max-width: 1200px) {
+    .section-iphone-x .section-img {
+        background-image: url("../../assets/images/lesson_6/iphone_x_medium_2x.jpg");
+        background-size: 649px 136px;
+        width: 649px;
+        height: 136px;
+    }
+}
+
+/* Tablets */
+
+@media (max-width: 992px) {
+    .section-iphone-x .section-img {
+        background-image: url("../../assets/images/lesson_6/iphone_x_medium_2x.jpg");
+        background-size: 649px 136px;
+        width: 649px;
+        height: 136px;
+    }
+}
+
+/* Phablets */
+
+@media (max-width: 767px) {
+    .section-iphone-x .section-img {
+        background-image: url("../../assets/images/lesson_6/iphone_x_small_2x.jpg");
+        background-size: 336px 71px;
+        width: 336px;
+        height: 71px;
+    }
+}
+
+/* Mobile devices */
+
+@media (max-width: 575px) {
+
+    .section-iphone-x .section-img {
+        background-image: url("../../assets/images/lesson_6/iphone_x_small_2x.jpg");
+        background-size: 336px 71px;
+        width: 336px;
+        height: 71px;
+    }
+}
+
+/* iPhone 8*/
+
+.section-iphone-8 {
+    background-color: #f9f0eb;
+    ;
+}
+
+.section-iphone-8 .section-content {
+    padding-top: 4.375rem;
+    margin: 0 auto;
+}
+
+.section-iphone-8 .section-img {
+    margin: 4rem auto;
+}
+
+/* PC */
+
+@media (min-width: 1200px) {
+    .section-iphone-8 .section-img {
+        background-image: url(../../assets/images/lesson_6/iphone_8_large_2x.jpg);
+        width: 611px;
+        height: 498px;
+        background-size: 611px 498px;
+    }
+}
+
+/* Laptop*/
+
+@media (max-width: 1200px) {
+    .section-iphone-8 .section-img {
+        background-image: url("../../assets/images/lesson_6/iphone_8_medium_2x.jpg");
+        background-size: 476px 383px;
+        width: 476px;
+        height: 383px;
+    }
+}
+
+/* Tablets */
+
+@media (max-width: 992px) {
+    .section-iphone-8 .section-img {
+        background-image: url("../../assets/images/lesson_6/iphone_8_medium_2x.jpg");
+        background-size: 476px 383px;
+        width: 476px;
+        height: 383px;
+    }
+}
+
+/* Phablets */
+
+@media (max-width: 767px) {
+    .section-iphone-8 .section-img {
+        background-image: url("../../assets/images/lesson_6/iphone_8_small_2x.jpg");
+        background-size: 321px 229px;
+        width: 321px;
+        height: 229px;
+    }
+}
+
+/* Mobile devices */
+
+@media (max-width: 575px) {
+    .section-iphone-8 .section-img {
+        background-image: url("../../assets/images/lesson_6/iphone_8_small_2x.jpg");
+        background-size: 321px 229px;
+        width: 321px;
+        height: 229px;
+    }
+}
+
+/* iPhone-compare*/
+
+.section-compare {
+    background-color: #fafafa;
+    margin-top: 2rem;
+    max-width: 1350px;
+}
+
+.section-compare .section-description {
+    text-align: left;
+    margin: initial;
+}
+
+.section-compare .section-img {
+    display: inline-flex;
+    background-size: 587px 449px;
+    background-image: url(../../assets/images/lesson_6/compare_large_2x.jpg);
+    width: 587px;
+    height: 449px;
+    background-size: 587px 449px;
+}
+
+.section-compare .section-img {
+    margin: 0 auto;
+    margin-top: 2rem;
+    align-self: flex-end;
+}
+/* PC */
+
+@media (min-width: 1200px) {
+    .section-iphone-8 .section-img {
+        background-image: url(../../assets/images/lesson_6/iphone_8_large_2x.jpg);
+        width: 611px;
+        height: 498px;
+        background-size: 611px 498px;
+    }
+}
+
+/* Laptop*/
+
+@media (max-width: 1200px) {
+    .section-iphone-8 .section-img {
+        background-image: url("../../assets/images/lesson_6/iphone_8_medium_2x.jpg");
+        background-size: 476px 383px;
+        width: 476px;
+        height: 383px;
+    }
+}
+
+/* Tablets */
+
+@media (max-width: 992px) {
+    .section-iphone-8 .section-img {
+        background-image: url("../../assets/images/lesson_6/iphone_8_medium_2x.jpg");
+        background-size: 476px 383px;
+        width: 476px;
+        height: 383px;
+    }
+}
+
+/* Phablets */
+
+@media (max-width: 767px) {
+    .section-iphone-8 .section-img {
+        background-image: url("../../assets/images/lesson_6/iphone_8_small_2x.jpg");
+        background-size: 321px 229px;
+        width: 321px;
+        height: 229px;
+    }
+}
+
+/* Mobile devices */
+
+@media (max-width: 575px) {
+    .section-iphone-8 .section-img {
+        background-image: url("../../assets/images/lesson_6/iphone_8_small_2x.jpg");
+        background-size: 321px 229px;
+        width: 321px;
+        height: 229px;
+    }
+}
+/* iOS */
+
+.section-ios {
+    background-color: #fafafa;
+    margin-top: 2rem;
+    justify-content: center;
+}
+
+.section-ios {
+    height: 700px;
+    justify-content: flex-start;
+}
+
+.section-ios .section-img {
+    margin: 0 auto;
+    margin-top: 2rem;
+    align-self: flex-end;
+}
+
+.section-ios .section-description {
+    display: flex;
+    align-items: stretch;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.section-ios .section-img {
+    position: absolute;
+    right: -10%;
+    top: 50%;
+    transform: translateY(-50%);
+    display: inline-flex;
+    background-image: url(../../assets/images/lesson_6/ios_large_2x.jpg);
+    width: 828px;
+    height: 527px;
+    background-size: 828px 527px;
+    margin-top: 0;
+}
+
+@media (max-width: 767px) {
+    .page-nav__controls {
+        display: flex;
+        position: relative;
+    }
+    .page-nav__first-img {
+        position: absolute;
+    }
+    .page-nav__second-img {
+        position: absolute;
+        left: 90%;
+    }
+    .page-nav.opened {
+        background-color: black;
+    }
+    .page-nav__menu {
+        position: absolute;
+        top: 50px;
+        left: 0;
+        width: 100vw;
+        min-height: 100vh;
+        background-color: black;
+        flex-direction: column;
+        justify-content: flex-start;
+        padding: 0 45px;
+        display: flex;
+        visibility: hidden;
+        transition: all 200ms;
+        transform: scaleY(0);
+        transform-origin: top;
+    }
+    .page-nav.opened .page-nav__menu {
+        visibility: visible;
+        transform: scaleY(1);
+    }
+    .page-nav__link {
+        padding: 15px 0;
+        border-bottom: 1px solid #292929;
+        opacity: 0;
+        transition: opacity 150ms 30ms;
+    }
+    .page-nav.opened .page-nav__link {
+        opacity: 1;
+    }
+}
